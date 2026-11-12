@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07090c">
+  <meta name="description" content="时间的尽头，一场可以亲自探索的宇宙终章。穿行于最后的光、破碎的星辰与时间的回声。">
+  <title>时间的尽头 · The End of Time</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div id="universe" aria-label="可拖动旋转、滚轮缩放的三维宇宙" tabindex="0"></div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <div id="transition" aria-hidden="true"></div>
+  <div id="loading"><div class="loader-orbit"></div><p>正在寻找最后一束光</p><span>ESTABLISHING CONTACT</span></div>
+
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="回到初始视角" id="home"><svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="12"/><ellipse cx="22" cy="22" rx="21" ry="6" transform="rotate(-35 22 22)"/><path d="M22 4v5m0 26v5"/></svg><span>终末观测站<small>THE LAST OBSERVATORY</small></span></a>
+    <div class="top-status"><i></i> 来自时间边缘的信号 <span>LIVE</span></div>
+    <div class="top-actions">
+      <button id="sound" class="icon-button" aria-label="开启宇宙环境音" aria-pressed="false" title="环境音 M"><svg viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4zM17 9v6m4-9v12"/></svg><span>声音关闭</span></button>
+      <button id="fullscreen" class="icon-button square" aria-label="切换全屏" title="全屏 F"><svg viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></button>
+      <button id="help" class="icon-button square" aria-label="操作指南" title="操作指南">?</button>
+    </div>
+  </header>
+
+  <main class="intro" id="intro">
+    <div class="eyebrow"><span class="small-line"></span> AN INTERACTIVE COSMIC POEM</div>
+    <h1>时间的<br><span>尽头</span><sup>∞</sup></h1>
+    <div class="english-title">THE END OF TIME</div>
+    <p class="poem" id="poem">当最后一颗恒星熄灭，<br>谁来记住，光曾经到过这里。</p>
+    <button class="enter-button" id="enter"><span class="button-orbit">↗</span><span id="enter-label">越过事件视界</span><span class="button-end">⟶</span></button>
+    <div class="entry-note">戴上耳机 · 让宇宙慢下来</div>
+  </main>
+
+  <aside class="scene-index" aria-label="宇宙章节">
+    <span class="vertical-label">CHAPTERS / 宇宙的三个瞬间</span>
+    <button class="chapter active" data-chapter="0" aria-label="第一章 余晖" aria-pressed="true"><span>01</span><i></i><em>余晖</em></button>
+    <button class="chapter" data-chapter="1" aria-label="第二章 静默" aria-pressed="false"><span>02</span><i></i><em>静默</em></button>
+    <button class="chapter" data-chapter="2" aria-label="第三章 新生" aria-pressed="false"><span>03</span><i></i><em>新生</em></button>
+  </aside>
+
+  <div class="object-caption" id="object-caption"><span class="caption-line"></span><span id="object-name">奇点 / SINGULARITY</span><small id="object-sub">光也无法逃离的地方</small></div>
+  <div id="memory-markers" aria-label="寻找时间回声"></div>
+  <div class="memory-counter"><span class="diamond">◇</span> 时间的回声 <strong id="memory-count">00 / 03</strong></div>
+
+  <footer class="bottom-bar">
+    <div class="coordinates"><span>观测时间 / OBSERVATION</span><strong id="clock">T + 000.000</strong><small id="epoch">宇宙暮年 · 第 10¹⁰⁰ 年</small></div>
+    <div class="time-console">
+      <div class="time-top"><span>时间流速</span><button id="reverse" aria-label="逆转时间" title="逆转时间 R">↶</button><button id="pause" aria-label="暂停时间" title="暂停 / 继续 空格">Ⅱ</button><output id="speed-value" for="speed">1.0×</output></div>
+      <input type="range" id="speed" min="0" max="2" step="0.05" value="1" aria-label="时间流速">
+      <div class="time-bottom"><span>静止</span><span>流逝</span></div>
+    </div>
+    <div class="interaction-guide"><span><svg viewBox="0 0 16 22"><rect x="3" y="1" width="10" height="17" rx="5"/><path d="M8 1v6M8 20v2"/></svg>拖动环绕 <b>·</b> 滚轮靠近</span><button id="pulse">点击空白处 <b>释放引力</b> <span>↗</span></button></div>
+  </footer>
+
+  <div class="toast" id="toast" role="status"></div>
+  <dialog id="help-dialog"><button class="close-dialog" aria-label="关闭指南">×</button><span class="dialog-eyebrow">FIELD NOTES / 观测手记</span><h2>在永恒里，<br>停留片刻。</h2><p>这片宇宙会记住你的每一次触碰。</p><div class="help-list"><div><span>拖动鼠标 / 单指滑动</span><b>环绕奇点</b></div><div><span>滚轮 / 双指缩放</span><b>靠近或远离</b></div><div><span>点击宇宙 / G</span><b>释放引力脉冲</b></div><div><span>空格 / R</span><b>暂停 / 逆转时间</b></div><div><span>数字 1 · 2 · 3</span><b>切换宇宙章节</b></div><div><span>H / M / F</span><b>隐藏界面 / 声音 / 全屏</b></div></div><p class="help-foot">寻找星海中三个菱形光点，拾起时间留下的回声。</p><button class="dialog-action" id="help-close">继续观测 ⟶</button></dialog>
+  <dialog id="memory-dialog"><button class="close-dialog" aria-label="关闭回声">×</button><span class="dialog-eyebrow" id="memory-label">ECHO 01</span><div class="memory-symbol">✧</div><h2 id="memory-title"></h2><p id="memory-text"></p><button class="dialog-action" id="memory-close">将回声带走 ⟶</button></dialog>
+  <div id="error" hidden><h2>宇宙暂时无法显现</h2><p>请在支持 WebGL 2 的浏览器中打开，并开启硬件加速。</p><button onclick="location.reload()">重新连接</button></div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
